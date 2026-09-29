@@ -1,0 +1,13 @@
+diff --git a/src/app.js b/src/app.js
+index 5ccf32c..29a9108 100644
+--- a/src/app.js
++++ b/src/app.js
+@@ -23,7 +23,7 @@ function renderList() {
+             <td data-label="科室"><span class="department">${record.department}</span></td>
+             <td class="diagnosis" data-label="诊断">${record.diagnosis}</td>
+             <td class="visit-time" data-label="就诊时间">${record.time}</td>
+-            <td class="action-cell"><a class="detail-link" href="#/records/${record.id}" aria-label="查看${record.name}的就诊详情">查看详情 ${arrow}</a></td>
++            <td class="action-cell"><a class="detail-link" href="#/records/BROKEN-${record.id}" aria-label="查看${record.name}的就诊详情">查看详情 ${arrow}</a></td>
+           </tr>`).join('')}</tbody>
+       </table></div>
+       <div class="panel-footer"><span><i class="status-dot"></i> 共 ${records.length} 条，已显示全部记录</span><span>教学模拟数据</span></div>

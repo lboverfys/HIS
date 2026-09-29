@@ -1,0 +1,4 @@
+0059960 (HEAD -> exercise/rollback) 演练：故意破坏详情链接以验证回滚
+1b08636 (feature/visit-records) 测试：验证记录定位和本地静态服务
+dd5aa50 功能：实现就诊记录列表与详情页面
+3d2cb71 (main) 初始化：建立就诊记录项目基础

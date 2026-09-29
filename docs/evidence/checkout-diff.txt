@@ -1,0 +1,10 @@
+diff --git a/README.md b/README.md
+index bbc6d1c..7b4e3f5 100644
+--- a/README.md
++++ b/README.md
+@@ -32,3 +32,5 @@ npm test
+ 在 main 分支建立项目基础，在 feature/visit-records 分支开发。通过 git diff 审查改动，完成验证后提交并合并。回滚演练使用独立的 exercise/rollback 分支，先保存正常版本，再故意引入一个错误并用 git reset --hard 恢复，避免影响正常开发分支。
+ 
+ 实验记录、截图和实际提交编号在操作完成后补充。仓库地址：https://github.com/lboverfys/HIS
++
++本次练习临时行：使用 checkout -- 还原工作区修改。

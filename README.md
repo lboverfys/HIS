@@ -31,4 +31,15 @@ npm test
 
 在 main 分支建立项目基础，在 feature/visit-records 分支开发。通过 git diff 审查改动，完成验证后提交并合并。回滚演练使用独立的 exercise/rollback 分支，先保存正常版本，再故意引入一个错误并用 git reset --hard 恢复，避免影响正常开发分支。
 
-实验记录、截图和实际提交编号在操作完成后补充。仓库地址：https://github.com/lboverfys/HIS
+## 实验材料
+
+- [填写后的 Word 实验文档](docs/实验03-工作流与git.docx)
+- [实验过程与思考题](docs/实验过程.md)
+- [实际命令输出](docs/evidence)
+- [页面与 Git 过程截图](docs/screenshots)
+
+功能合并阶段已有 5 笔中文规范提交。演练故障版本为 `0059960`，恢复版本为 `1b08636`，合并版本为 `233a935`。最终代码的 3 项自动测试和 6 条记录的浏览器复测均通过，详情刷新、前进后退及 390 px 窄屏布局已验证。
+
+实际 AI 协作使用 Codex，课程原题列出的工具为 OpenCode；实验文档已如实记录工具差异。所有截图来自本次本地操作，Git 命令截图展示实际命令输出的存档页面，并附原始文本。
+
+仓库地址：https://github.com/lboverfys/HIS
