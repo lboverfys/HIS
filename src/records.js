@@ -7,6 +7,11 @@ export const records = [
   { id: 'VIS-20260927-001', name: '陆星辰', gender: '男', age: 31, department: '眼科', diagnosis: '干眼症', time: '2026-09-27 14:40', doctor: '何清', complaint: '双眼干涩，长时间用眼后明显。', note: '登记本次眼部检查摘要。' },
 ];
 
-export function findRecord(id) {
-  return records.find((record) => record.id === id);
+export function recordHash(id) {
+  return `#/records/${id}`;
+}
+
+export function findRecordByHash(hash) {
+  const match = hash.match(/^#\/records\/([A-Z0-9-]+)$/);
+  return match ? records.find((record) => record.id === match[1]) : undefined;
 }

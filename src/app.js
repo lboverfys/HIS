@@ -1,4 +1,4 @@
-import { records, findRecord } from './records.js';
+import { records, recordHash, findRecordByHash } from './records.js';
 
 const app = document.querySelector('#app');
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>';
@@ -23,7 +23,7 @@ function renderList() {
             <td data-label="科室"><span class="department">${record.department}</span></td>
             <td class="diagnosis" data-label="诊断">${record.diagnosis}</td>
             <td class="visit-time" data-label="就诊时间">${record.time}</td>
-            <td class="action-cell"><a class="detail-link" href="#/records/${record.id}" aria-label="查看${record.name}的就诊详情">查看详情 ${arrow}</a></td>
+            <td class="action-cell"><a class="detail-link" href="${recordHash(record.id)}" aria-label="查看${record.name}的就诊详情">查看详情 ${arrow}</a></td>
           </tr>`).join('')}</tbody>
       </table></div>
       <div class="panel-footer"><span><i class="status-dot"></i> 共 ${records.length} 条，已显示全部记录</span><span>教学模拟数据</span></div>
@@ -52,8 +52,7 @@ function render() {
   if (!hash || hash === '#/records') {
     renderList();
   } else {
-    const match = hash.match(/^#\/records\/([A-Z0-9-]+)$/);
-    const record = match && findRecord(match[1]);
+    const record = findRecordByHash(hash);
     if (record) renderDetail(record);
     else renderNotFound();
   }

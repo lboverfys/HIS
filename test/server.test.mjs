@@ -2,12 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createAppServer } from '../server.mjs';
-import { records, findRecord } from '../src/records.js';
+import { records, recordHash, findRecordByHash } from '../src/records.js';
 
-test('每条就诊记录均能按独立编号找到，未知编号不会误返回患者', () => {
+test('每条记录生成的详情链接都能解析回同一患者', () => {
   assert.equal(new Set(records.map((record) => record.id)).size, records.length);
-  for (const record of records) assert.equal(findRecord(record.id), record);
-  assert.equal(findRecord('NOT-FOUND'), undefined);
+  for (const record of records) assert.equal(findRecordByHash(recordHash(record.id)), record);
+});
+
+test('错误前缀、未知编号和非法路径不会误返回患者', () => {
+  for (const hash of ['#/records/BROKEN-VIS-20260929-006', '#/records/NOT-FOUND', '#/records/', '#/other/VIS-20260929-006', '#/records/<script>']) {
+    assert.equal(findRecordByHash(hash), undefined, hash);
+  }
 });
 
 test('本地 HTTP 服务提供页面和模块，同时阻止暴露仓库文件', async (t) => {
